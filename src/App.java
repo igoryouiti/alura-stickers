@@ -9,15 +9,16 @@ public class App {
 
         // fazer uma conexão HTTP e bucar os top 250 filmes
         // String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
-        String url = "https://api.nasa.gov/planetary/apod?api_key=tQXVDmyOoTKgdUx8MkxhvKWiNCu1dK76meNIL5CC&start_date=2022-09-04&end_date=2022-09-07";
+        // String url = "https://api.nasa.gov/planetary/apod?api_key=tQXVDmyOoTKgdUx8MkxhvKWiNCu1dK76meNIL5CC&start_date=2022-09-04&end_date=2022-09-07";
+        String url = "http://localhost:8080/linguagens";
 
         var http = new ClienteHttp();
         String json = http.buscaDados(url);
 
         // exibir e manipular os dados
 
-        ExtratorDeConteudo extrator = new ExtratoDeConteudoDaNasa();
-        //ExtratoDeConteudo extrator = new ExtratoDeConteudoDoIMDB();
+        //ExtratorDeConteudo extrator = new ExtratoDeConteudoDaNasa();
+        ExtratorDeConteudo extrator = new ExtratoDeConteudoDoIMDB();
 
         List<Conteudo> conteudos = extrator.extraiConteudos(json);
 
